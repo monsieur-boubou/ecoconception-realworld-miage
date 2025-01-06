@@ -17,7 +17,7 @@
                 [ngClass]="{ active: listConfig.type === 'feed' }"
                 (click)="setListTo('feed')"
               >
-                Your Feed
+                Articles
               </a>
             </li>
             <li class="nav-item">
@@ -28,7 +28,7 @@
                 }"
                 (click)="setListTo('all')"
               >
-                Global Feed
+                Articles
               </a>
             </li>
             <li class="nav-item" [hidden]="!listConfig.filters.tag">
