@@ -1,18 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
 @import url("https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
 @import url("https://fonts.googleapis.com/css?family=Titillium+Web:700|Source+Serif+Pro:400,700|Merriweather+Sans:400,700|Source+Sans+Pro:400,300,600,700,300italic,400italic,600italic,700italic");
 @import url("https://demo.productionready.io/main.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
-@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation.min.css");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.22/css/uikit.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/balloon-css/1.2.0/balloon.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/spinkit/1.2.5/spinkit.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.css");
 body {
   font-family: "Dancing Script", cursive;
   font-size: 36px;
