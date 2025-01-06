@@ -1,13 +1,20 @@
+import {
+  animate,
+  keyframes,
+  style,
+  transition,
+  trigger,
+} from "@angular/animations";
+import { AsyncPipe, NgClass, NgForOf } from "@angular/common";
 import { Component, inject, OnDestroy, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { TagsService } from "../../core/services/tags.service";
-import { ArticleListConfig } from "../../core/models/article-list-config.model";
-import { AsyncPipe, NgClass, NgForOf } from "@angular/common";
-import { ArticleListComponent } from "../../shared/article-helpers/article-list.component";
-import { takeUntil, tap } from "rxjs/operators";
-import { Subject } from "rxjs";
-import { UserService } from "../../core/services/user.service";
 import { LetDirective } from "@rx-angular/template/let";
+import { Subject } from "rxjs";
+import { takeUntil, tap } from "rxjs/operators";
+import { ArticleListConfig } from "../../core/models/article-list-config.model";
+import { TagsService } from "../../core/services/tags.service";
+import { UserService } from "../../core/services/user.service";
+import { ArticleListComponent } from "../../shared/article-helpers/article-list.component";
 import { ShowAuthedDirective } from "../../shared/show-authed.directive";
 
 @Component({
@@ -21,6 +28,30 @@ import { ShowAuthedDirective } from "../../shared/show-authed.directive";
     LetDirective,
     NgForOf,
     ShowAuthedDirective,
+  ],
+  animations: [
+    trigger("intensiveAnimation", [
+      transition(":enter", [
+        animate(
+          "10s ease-in-out",
+          keyframes([
+            style({ opacity: 0, transform: "translateX(-100%)", offset: 0 }),
+            style({ opacity: 0.5, transform: "translateX(50%)", offset: 0.5 }),
+            style({ opacity: 1, transform: "translateX(0)", offset: 1 }),
+          ])
+        ),
+      ]),
+      transition(":leave", [
+        animate(
+          "10s ease-in-out",
+          keyframes([
+            style({ opacity: 1, transform: "translateX(0)", offset: 0 }),
+            style({ opacity: 0.5, transform: "translateX(-50%)", offset: 0.5 }),
+            style({ opacity: 0, transform: "translateX(100%)", offset: 1 }),
+          ])
+        ),
+      ]),
+    ]),
   ],
   standalone: true,
 })

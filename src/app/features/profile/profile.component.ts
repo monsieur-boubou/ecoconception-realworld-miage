@@ -1,3 +1,11 @@
+import {
+  animate,
+  keyframes,
+  style,
+  transition,
+  trigger,
+} from "@angular/animations";
+import { AsyncPipe, NgIf } from "@angular/common";
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import {
   ActivatedRoute,
@@ -6,13 +14,12 @@ import {
   RouterLinkActive,
   RouterOutlet,
 } from "@angular/router";
-import { catchError, switchMap, takeUntil } from "rxjs/operators";
 import { combineLatest, of, Subject, throwError } from "rxjs";
-import { UserService } from "../../core/services/user.service";
+import { catchError, switchMap, takeUntil } from "rxjs/operators";
 import { Profile } from "../../core/models/profile.model";
 import { ProfileService } from "../../core/services/profile.service";
+import { UserService } from "../../core/services/user.service";
 import { FollowButtonComponent } from "../../shared/buttons/follow-button.component";
-import { AsyncPipe, NgIf } from "@angular/common";
 
 @Component({
   selector: "app-profile-page",
@@ -24,6 +31,30 @@ import { AsyncPipe, NgIf } from "@angular/common";
     AsyncPipe,
     RouterLinkActive,
     RouterOutlet,
+  ],
+  animations: [
+    trigger("intensiveAnimation", [
+      transition(":enter", [
+        animate(
+          "10s ease-in-out",
+          keyframes([
+            style({ opacity: 0, transform: "translateX(-100%)", offset: 0 }),
+            style({ opacity: 0.5, transform: "translateX(50%)", offset: 0.5 }),
+            style({ opacity: 1, transform: "translateX(0)", offset: 1 }),
+          ])
+        ),
+      ]),
+      transition(":leave", [
+        animate(
+          "10s ease-in-out",
+          keyframes([
+            style({ opacity: 1, transform: "translateX(0)", offset: 0 }),
+            style({ opacity: 0.5, transform: "translateX(-50%)", offset: 0.5 }),
+            style({ opacity: 0, transform: "translateX(100%)", offset: 1 }),
+          ])
+        ),
+      ]),
+    ]),
   ],
   standalone: true,
 })

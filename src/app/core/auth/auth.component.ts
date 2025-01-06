@@ -12,6 +12,13 @@ import { Errors } from "../models/errors.model";
 import { UserService } from "../services/user.service";
 import { takeUntil } from "rxjs/operators";
 import { Subject } from "rxjs";
+import {
+  trigger,
+  transition,
+  animate,
+  keyframes,
+  style,
+} from "@angular/animations";
 
 interface AuthForm {
   email: FormControl<string>;
@@ -23,6 +30,30 @@ interface AuthForm {
   selector: "app-auth-page",
   templateUrl: "./auth.component.html",
   imports: [RouterLink, NgIf, ListErrorsComponent, ReactiveFormsModule],
+  animations: [
+    trigger("intensiveAnimation", [
+      transition(":enter", [
+        animate(
+          "10s ease-in-out",
+          keyframes([
+            style({ opacity: 0, transform: "translateX(-100%)", offset: 0 }),
+            style({ opacity: 0.5, transform: "translateX(50%)", offset: 0.5 }),
+            style({ opacity: 1, transform: "translateX(0)", offset: 1 }),
+          ])
+        ),
+      ]),
+      transition(":leave", [
+        animate(
+          "10s ease-in-out",
+          keyframes([
+            style({ opacity: 1, transform: "translateX(0)", offset: 0 }),
+            style({ opacity: 0.5, transform: "translateX(-50%)", offset: 0.5 }),
+            style({ opacity: 0, transform: "translateX(100%)", offset: 1 }),
+          ])
+        ),
+      ]),
+    ]),
+  ],
   standalone: true,
 })
 export class AuthComponent implements OnInit, OnDestroy {

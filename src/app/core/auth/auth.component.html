@@ -1,48 +1,61 @@
-<div class="auth-page">
-  <div class="container page">
-    <div class="row">
-      <div class="col-md-6 offset-md-3 col-xs-12">
-        <h1 class="text-xs-center">{{ title }}</h1>
-        <p class="text-xs-center">
-          <a *ngIf="authType === 'register'" [routerLink]="['/login']"
-            >Have an account?</a
-          >
-          <a *ngIf="authType === 'login'" [routerLink]="['/register']"
+<div class="auth-page" [@intensiveAnimation]>
+  <div class="container page" [@intensiveAnimation]>
+    <div class="row" [@intensiveAnimation]>
+      <div class="col-md-6 offset-md-3 col-xs-12" [@intensiveAnimation]>
+        <h1 class="text-xs-center" [@intensiveAnimation]>{{ title }}</h1>
+        <p class="text-xs-center" [@intensiveAnimation]>
+          <a [routerLink]="['/register']" [@intensiveAnimation]
             >Need an account?</a
           >
         </p>
-        <app-list-errors [errors]="errors"></app-list-errors>
-        <form [formGroup]="authForm" (ngSubmit)="submitForm()">
-          <fieldset [disabled]="isSubmitting">
-            <fieldset class="form-group">
+
+        <app-list-errors
+          [errors]="errors"
+          [@intensiveAnimation]
+        ></app-list-errors>
+
+        <form
+          [formGroup]="authForm"
+          (ngSubmit)="submitForm()"
+          [@intensiveAnimation]
+        >
+          <fieldset [disabled]="isSubmitting" [@intensiveAnimation]>
+            <fieldset
+              class="form-group"
+              *ngIf="authType === 'register'"
+              [@intensiveAnimation]
+            >
               <input
-                *ngIf="authType === 'register'"
+                class="form-control form-control-lg"
                 formControlName="username"
                 placeholder="Username"
-                class="form-control form-control-lg"
-                type="text"
+                [@intensiveAnimation]
               />
             </fieldset>
-            <fieldset class="form-group">
+
+            <fieldset class="form-group" [@intensiveAnimation]>
               <input
+                class="form-control form-control-lg"
                 formControlName="email"
                 placeholder="Email"
-                class="form-control form-control-lg"
-                type="text"
+                [@intensiveAnimation]
               />
             </fieldset>
-            <fieldset class="form-group">
+
+            <fieldset class="form-group" [@intensiveAnimation]>
               <input
-                formControlName="password"
-                placeholder="Password"
                 class="form-control form-control-lg"
                 type="password"
+                formControlName="password"
+                placeholder="Password"
+                [@intensiveAnimation]
               />
             </fieldset>
+
             <button
               class="btn btn-lg btn-primary pull-xs-right"
-              [disabled]="!authForm.valid"
               type="submit"
+              [@intensiveAnimation]
             >
               {{ title }}
             </button>

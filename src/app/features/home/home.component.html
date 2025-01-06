@@ -10,29 +10,35 @@
     <div class="row">
       <div class="col-md-9">
         <div class="feed-toggle">
-          <ul class="nav nav-pills outline-active">
-            <li class="nav-item">
+          <ul class="nav nav-pills outline-active" [@intensiveAnimation]>
+            <li class="nav-item" [@intensiveAnimation]>
               <a
                 class="nav-link"
                 [ngClass]="{ active: listConfig.type === 'feed' }"
                 (click)="setListTo('feed')"
+                [@intensiveAnimation]
               >
                 Your Feed
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" [@intensiveAnimation]>
               <a
                 class="nav-link"
                 [ngClass]="{
                   active: listConfig.type === 'all' && !listConfig.filters.tag
                 }"
                 (click)="setListTo('all')"
+                [@intensiveAnimation]
               >
                 Global Feed
               </a>
             </li>
-            <li class="nav-item" [hidden]="!listConfig.filters.tag">
-              <a class="nav-link active">
+            <li
+              class="nav-item"
+              [hidden]="!listConfig.filters.tag"
+              [@intensiveAnimation]
+            >
+              <a class="nav-link active" [@intensiveAnimation]>
                 <i class="ion-pound"></i> {{ listConfig.filters.tag }}
               </a>
             </li>
