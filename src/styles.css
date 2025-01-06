@@ -42,3 +42,34 @@ body {
     text-shadow: 0 0 20px #32cd32, 0 0 30px #7fffd4, 0 0 40px #1e90ff;
   }
 }
+
+/* src/styles.css */
+
+/* Define keyframes for the animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* Apply the animations globally */
+* {
+  animation: fadeIn 1s ease-in-out;
+  animation: fadeOut 1s ease-in-out;
+}
