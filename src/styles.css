@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+/* Apply the font globally */
+@font-face {
+  font-family: "CalligraphicFont";
+  src: url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+}
+
+body {
+  font-family: "Dancing Script", cursive;
+  font-size: 36px;
+  line-height: 1.5;
+  background: repeating-linear-gradient(
+    45deg,
+    #ff1493,
+    #00ff00 10px,
+    #1e90ff 20px
+  );
+  color: #ffd700;
+  text-shadow: 3px 3px 5px #8b0000, -3px -3px 5px #00ffff;
+  animation: rainbowText 5s linear infinite,
+    glowEffect 2s ease-in-out infinite alternate;
+}
+
+/* Animation pour rendre le texte encore plus gourmand */
+@keyframes rainbowText {
+  0% {
+    color: #ff0000;
+  }
+  25% {
+    color: #00ff00;
+  }
+  50% {
+    color: #0000ff;
+  }
+  75% {
+    color: #ffff00;
+  }
+  100% {
+    color: #ff00ff;
+  }
+}
+
+@keyframes glowEffect {
+  from {
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ff4500, 0 0 30px #ff6347;
+  }
+  to {
+    text-shadow: 0 0 20px #32cd32, 0 0 30px #7fffd4, 0 0 40px #1e90ff;
+  }
+}
