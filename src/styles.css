@@ -1,26 +1,21 @@
-/* Apply the font globally */
-@font-face {
-  font-family: "CalligraphicFont";
-  src: url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
-}
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
 
 body {
   font-family: "Dancing Script", cursive;
   font-size: 36px;
   line-height: 1.5;
-  background: repeating-linear-gradient(
-    45deg,
-    #ff1493,
-    #00ff00 10px,
-    #1e90ff 20px
-  );
+  background: url("https://www.photofunky.net/output/image/b/0/7/6/b076c1/photofunky.gif")
+    center center / cover no-repeat fixed;
   color: #ffd700;
   text-shadow: 3px 3px 5px #8b0000, -3px -3px 5px #00ffff;
   animation: rainbowText 5s linear infinite,
     glowEffect 2s ease-in-out infinite alternate;
+  margin: 0;
+  padding: 20px;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* Animation pour rendre le texte encore plus gourmand */
 @keyframes rainbowText {
   0% {
     color: #ff0000;
