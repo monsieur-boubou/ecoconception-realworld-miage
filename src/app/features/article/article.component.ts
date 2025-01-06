@@ -53,6 +53,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
   isSubmitting = false;
   isDeleting = false;
   destroy$ = new Subject<void>();
+  isModalVisible = false;
 
   constructor(
     private readonly route: ActivatedRoute,

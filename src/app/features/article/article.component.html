@@ -28,13 +28,22 @@
           >
           </app-follow-button>
 
-          <app-favorite-button
-            [article]="article"
-            (toggle)="onToggleFavorite($event)"
-          >
-            {{ article.favorited ? "Unfavorite" : "Favorite" }} Article
-            <span class="counter">({{ article.favoritesCount }})</span>
-          </app-favorite-button>
+        <div *ngIf="isModalVisible" class="modal">
+          <div class="modal-content">
+            <p>Êtes-vous sûr de vouloir {{ article.favorited ? 'retirer' : 'ajouter' }} cet article aux favoris ?</p>
+            <button (click)="article.favorited ? onToggleFavorite(false) : onToggleFavorite(true)">Confirmer</button>
+            <button (click)="isModalVisible = false">Annuler</button>
+          </div>
+        </div>
+
+        <!-- Bouton "Favorite" -->
+        <app-favorite-button
+          [article]="article"
+          (toggle)="isModalVisible = true"
+        >
+          {{ article.favorited ? "Unfavorite" : "Favorite" }} Article
+          <span class="counter">({{ article.favoritesCount }})</span>
+        </app-favorite-button>
         </span>
       </app-article-meta>
     </div>
